@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   post "/toys", to: "toys#create"
   get "/toys/new", to: "toys#new", as: "new_toy"
   get "/toys/:id", to: "toys#show", as: "toy"
+  put "toys/:id", to: "toys#update"
+  delete "/toys/:id", to: "toys#delete"
 end

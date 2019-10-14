@@ -2,7 +2,7 @@
 
 <ul>
     <% @toys.each { |toy| %>
-        <li><%= "#{toy["name"]}, #{toy["description"]}. Listed by: #{toy["user"]}." %><%= link_to("Show", toy_path(toy["id"])) %></li>
+        <li><%= "#{toy["name"]}, #{toy["description"]}. Listed by: #{toy["user"]} on #{toy["date"]}." %><%= link_to("Show", toy_path(toy["id"])) %></li>
     <% } %>
 </ul>
 

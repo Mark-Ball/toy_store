@@ -10,5 +10,22 @@ class ToysController < ApplicationController
     def new
     end
 
-    
+    def create
+    Toy.create(
+        name: params[:toy]["name"],
+        description: params[:toy]["description"],
+        date: params[:toy]["date"],
+        user: params[:toy]["user"]
+    )
+        redirect_to(toys_path)
+    end
+
+    def update
+        redirect_to(toys_path)
+    end
+
+    def delete
+        Toy.find(params[:id]).destroy
+        redirect_to(toys_path)
+    end
 end
