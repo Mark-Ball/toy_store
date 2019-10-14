@@ -21,6 +21,12 @@ class ToysController < ApplicationController
     end
 
     def update
+        Toy.find(params[:id]).update(
+            name: params[:toy]["name"],
+            description: params[:toy]["description"],
+            date: params[:toy]["date"],
+            user: params[:toy]["user"]
+        )
         redirect_to(toys_path)
     end
 
