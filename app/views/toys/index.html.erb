@@ -1,9 +1,11 @@
-<h1>List of all Toys</h1>
+<div id="index">
+    <h1>List of all Toys</h1>
 
-<ul>
-    <% @toys.each { |toy| %>
-        <li><%= "#{toy["name"]}, #{toy["description"]}. Listed by: #{toy["user"]} on #{toy["date"]}." %><%= link_to("Show", toy_path(toy["id"])) %></li>
-    <% } %>
-</ul>
+    <ul>
+        <% @toys.each { |toy| %>
+            <li><%= "#{toy["name"]}, #{toy["description"]}. Listed by: #{toy["user"]} on #{toy["date"]}." %><%= link_to("Show", toy_path(toy["id"])) %></li>
+        <% } %>
+    </ul>
 
-<%= link_to("Add new toy", new_toy_path) %>
+    <%= link_to('<button type="button">Add new toy</button>'.html_safe, new_toy_path) %></div>
+</div>

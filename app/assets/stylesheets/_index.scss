@@ -1,0 +1,19 @@
+#index {
+
+    button {
+        color: black;
+        background-image: linear-gradient(#EEE, #DDD);
+        border: 1px solid #d5d5d5;
+        border-radius: 3px;
+        font-weight: bold;
+        height: 30px;
+        width: 125px;
+        text-align: center;
+        line-height: 30px;
+
+    }
+
+    button:hover {
+            background-image: linear-gradient(#fff634, #cec72a)
+    }
+}

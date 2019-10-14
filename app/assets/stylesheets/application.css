@@ -13,3 +13,28 @@
  *= require_tree .
  *= require_self
  */
+ @import url('https://fonts.googleapis.com/css?family=Poppins|Rubik&display=swap');
+
+h1 {
+    font-family: Poppins, sans-serif;
+    text-align: center;
+}
+
+h3 {
+    font-family: Poppins, sans-serif;
+}
+
+body {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+ }
+
+li {
+    font-family: Rubik, sans-serif;
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+}
