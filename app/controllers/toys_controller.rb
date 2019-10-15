@@ -1,6 +1,7 @@
 class ToysController < ApplicationController
     def index
         @toys = Toy.all
+        @users = User.all
     end
 
     def show
@@ -11,12 +12,12 @@ class ToysController < ApplicationController
     end
 
     def create
-    Toy.create(
-        name: params[:toy]["name"],
-        description: params[:toy]["description"],
-        date: params[:toy]["date"],
-        user: params[:toy]["user"]
-    )
+        Toy.create(
+            name: params[:toy]["name"],
+            description: params[:toy]["description"],
+            date: params[:toy]["date"],
+            user_id: params[:toy]["user_id"]
+        )
         redirect_to(toys_path)
     end
 
@@ -25,7 +26,7 @@ class ToysController < ApplicationController
             name: params[:toy]["name"],
             description: params[:toy]["description"],
             date: params[:toy]["date"],
-            user: params[:toy]["user"]
+            user_id: params[:toy]["user_id"]
         )
         redirect_to(toys_path)
     end
