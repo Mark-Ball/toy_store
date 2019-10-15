@@ -1,11 +1,9 @@
 <div id="index">
     <h1>List of all Toys</h1>
 
-    <%= @users.to_json %>
-
     <ul>
         <% @toys.each { |toy| %>
-            <li><%= "#{toy["id"]} #{toy["name"]}, #{toy["description"]}. Listed by: #{toy["user_id"]} on #{toy["date"]}." %><%= link_to("Show", toy_path(toy["id"])) %></li>
+            <li><%= "#{toy["id"]} #{toy["name"]}, #{toy["description"]}. Listed by: #{@users.find(toy["user_id"]).email} on #{toy["date"]}." %><%= link_to("Show", toy_path(toy["id"])) %></li>
         <% } %>
     </ul>
 

@@ -6,6 +6,7 @@ class ToysController < ApplicationController
 
     def show
         @toy = Toy.find(params[:id])
+        @users = User.all
     end
 
     def new

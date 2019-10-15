@@ -6,6 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# for i in 1..3
+#     Manufacturer.create(
+#         name: ,
+#         locations:
+#     )
+
 for i in 1..5
     User.create(
         email: Faker::Internet.email,
