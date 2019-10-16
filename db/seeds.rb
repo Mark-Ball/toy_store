@@ -6,11 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# for i in 1..3
-#     Manufacturer.create(
-#         name: ,
-#         locations:
-#     )
+for i in 1..3
+    Manufacturer.create(
+        name: Faker::Company.name,
+        location: Faker::Address.city
+    )
+
+    puts "Created #{i} manufacturers"
+end
 
 for i in 1..5
     User.create(
@@ -26,7 +29,8 @@ for i in 1..20
         name: Faker::Superhero.name,
         description: Faker::Demographic.demonym,
         date: Time.at(Time.new(1990).to_f + rand * (Time.now.to_f - Time.new(1990).to_f)).to_date,
-        user_id: rand(1..5)
+        user_id: rand(1..5),
+        manufacturer_id: rand(1..3)
     )
 
     puts "Created #{i} toys"
