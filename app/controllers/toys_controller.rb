@@ -10,6 +10,7 @@ class ToysController < ApplicationController
     end
 
     def new
+        @toy = Toy.new
     end
 
     def create
@@ -17,7 +18,8 @@ class ToysController < ApplicationController
             name: params[:toy]["name"],
             description: params[:toy]["description"],
             date: params[:toy]["date"],
-            user_id: params[:toy]["user_id"]
+            user_id: params[:toy]["user_id"],
+            manufacturer_id: params[:toy]["manufacturer_id"]
         )
         redirect_to(toys_path)
     end

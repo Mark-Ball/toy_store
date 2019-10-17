@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_15_061234) do
+ActiveRecord::Schema.define(version: 2019_10_16_084903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "create_toys_categories", force: :cascade do |t|
+    t.bigint "toys_id"
+    t.bigint "categories_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["categories_id"], name: "index_create_toys_categories_on_categories_id"
+    t.index ["toys_id"], name: "index_create_toys_categories_on_toys_id"
+  end
 
   create_table "manufacturers", force: :cascade do |t|
     t.string "name"
@@ -31,6 +46,15 @@ ActiveRecord::Schema.define(version: 2019_10_15_061234) do
     t.index ["manufacturer_id"], name: "index_toys_on_manufacturer_id"
   end
 
+  create_table "toys_categories", force: :cascade do |t|
+    t.bigint "toy_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_toys_categories_on_category_id"
+    t.index ["toy_id"], name: "index_toys_categories_on_toy_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password"
@@ -38,5 +62,9 @@ ActiveRecord::Schema.define(version: 2019_10_15_061234) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "create_toys_categories", "categories", column: "categories_id"
+  add_foreign_key "create_toys_categories", "toys", column: "toys_id"
   add_foreign_key "toys", "manufacturers"
+  add_foreign_key "toys_categories", "categories"
+  add_foreign_key "toys_categories", "toys"
 end
