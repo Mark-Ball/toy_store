@@ -17,6 +17,10 @@
         <%= form.text_field :manufacturer_id %>
     </div>
     <div>
+        <%= form.label :image %>
+        <%= form.file_field :image, accept: "image/pmg,image/jpeg,image/jpg" %>
+    </div>
+    <div>
         <%= form.submit %>
     </div>
 <% end %>
