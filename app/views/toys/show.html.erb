@@ -3,6 +3,7 @@
 <p><%= "Description: #{@toy["description"]}" %><p>
 <p><%= "Date: #{@toy["date"]}" %><p>
 <p><%= "User: #{@users.find(@toy["user_id"]).email}" %><p>
+<%= image_tag @toy.image if @toy.image.attached? %>
 
 <h3>Do you want to edit this toy?</h3>
 <form method="POST" action="<%= toy_path %>" >

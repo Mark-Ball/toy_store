@@ -19,7 +19,8 @@ class ToysController < ApplicationController
             description: params[:toy]["description"],
             date: params[:toy]["date"],
             user_id: params[:toy]["user_id"],
-            manufacturer_id: params[:toy]["manufacturer_id"]
+            manufacturer_id: params[:toy]["manufacturer_id"],
+            image: params[:toy]["image"]
         )
         redirect_to(toys_path)
     end
