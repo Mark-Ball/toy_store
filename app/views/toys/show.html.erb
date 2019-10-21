@@ -23,9 +23,32 @@
     <input type="submit" value="Confirm change" />
 </form>
 
+<h3>Do you want to edit this toy the rails way?</h3>
+<%= form_with(model: @toy, local: true) do |form| %>
+    <div>
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+    </div>
+    <div>
+        <%= form.label :description %>
+        <%= form.text_field :description %>
+    </div>
+    <div>
+        <%= form.label :user_id %>
+        <%= form.text_field :user_id %>
+    </div>
+    <div>
+        <%= form.label :manufacturer_id %>
+        <%= form.text_field :manufacturer_id %>
+    </div>
+    <%= submit_tag("Update") %>
+<% end %>
+
+
 <h3>Delete you want to delete this toy the rails way?</h3>
 <%= form_with(url: toy_path, method: "delete") do %>
-<%= submit_tag("Delete") %>
+    <%= submit_tag("Delete") %>
 <% end %>
+
 
 <%= link_to("&larr;".html_safe, toys_path) %>

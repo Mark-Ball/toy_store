@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   get "/toys/new", to: "toys#new", as: "new_toy"
   get "/toys/:id", to: "toys#show", as: "toy"
   put "toys/:id", to: "toys#update"
+  patch "toys/:id", to: "toys#update"
   delete "/toys/:id", to: "toys#delete"
 end
