@@ -1,4 +1,6 @@
 class ToysController < ApplicationController
+    before_action :authenticate_user!
+    
     def index
         @toys = Toy.all
         @users = User.all
@@ -14,7 +16,8 @@ class ToysController < ApplicationController
     end
 
     def create
-        Toy.create(
+        byebug
+        @toy = current_user.toys.create(
             name: params[:toy]["name"],
             description: params[:toy]["description"],
             date: params[:toy]["date"],
